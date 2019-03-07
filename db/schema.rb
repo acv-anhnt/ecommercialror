@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_043650) do
+ActiveRecord::Schema.define(version: 2019_03_07_024445) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
     t.string "title"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2019_03_06_043650) do
     t.text "description"
     t.decimal "price", precision: 10
     t.bigint "category_id"
+    t.string "image_url"
+    t.timestamp "post_at"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

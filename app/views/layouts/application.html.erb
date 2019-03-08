@@ -28,10 +28,11 @@
                           </button>
                       </div>
                   </div>
-                  <a class="btn btn-success btn-sm ml-3" href="cart.html">
-                      <i class="fa fa-shopping-cart"></i> Cart
-                      <span class="badge badge-light">3</span>
-                  </a>
+                  <%= link_to carts_path, class: "btn btn-success btn-sm ml-3" do %>
+                    Cart
+                    <%= content_tag :span, current_order.order_items.size, class: 'badge badge-light' %>
+                  <% end %>
+
                   <%= link_to 'Profile', edit_user_registration_path, method: :delete, class: 'btn-success btn btn-success btn-sm ml-3' %>
                   <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ml-3' %>
               </form>

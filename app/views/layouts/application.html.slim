@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title
+      | CommercialProj
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+      .container
+        = link_to 'Simple Ecommerce', products_path, class: 'navbar-brand'
+        button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"]
+          span.navbar-toggler-icon
+          - if user_signed_in?      
+            form.form-inline.my-2.my-lg-0
+              .input-group.input-group-sm
+                .input-group-append
+                  button.btn.btn-secondary.btn-number[type="button"]
+              h1.cart-text
+                = render partial: 'layouts/cart_text'
+              h1.payment_text
+                = render partial: 'layouts/payment_text'
+              = link_to 'Profile', edit_user_registration_path, method: :get, class: 'btn-success btn btn-success btn-sm ml-3'
+              = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ml-3'
+          - else
+            = link_to 'Login', new_user_session_path, class: 'btn-success btn btn-success btn-sm ml-3'
+    .container[style="margin-top:100px; margin-bottom: 100px"]
+      = yield

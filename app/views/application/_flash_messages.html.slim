@@ -1,0 +1,13 @@
+- if flash.present?
+  #flash
+    script
+      - if flash[:success]
+       var $toastContent = $('<span><%= flash[:success] %></span>');
+       toastr.success($toastContent)
+      - if flash[:info]
+       var $toastContent = $('<span><%= flash[:info] %></span>');
+       toastr.info($toastContent)
+      - if flash[:danger]
+       var $toastContent = $('<span><%= flash[:danger] %></span>');
+       toastr.error($toastContent)
+

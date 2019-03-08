@@ -16,7 +16,8 @@ default: &default
   username: root
   password:
   socket: /tmp/mysql.sock
-
+  reconnect: true
+  
 development:
   <<: *default
   database: CommercialProj_development

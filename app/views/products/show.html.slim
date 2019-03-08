@@ -1,0 +1,23 @@
+.container
+  .row
+    .col-lg-9
+      .card.mt-4
+        = image_tag @product.image_url, class: 'card-img-top', alt: 'Card image cap'
+        .card-body
+          h3.card-title
+            = @product.title
+          = form_for(@order_item, remote: true)  do |f|
+            = number_to_currency @product.price
+            .input-group
+              = f.number_field :quantity, value: 1, class: "form-control", min: 1
+              .input-group-btn
+                = f.hidden_field :product_id, value: @product.id
+                = f.submit "Add to Cart", class: "btn btn-primary"
+          h4
+            | Price: $
+            = @product.price
+          p.card-text
+            = @product.description
+          span.text-warning
+            | ★ ★ ★ ★ ☆
+          |  4.0 stars 

@@ -7,17 +7,19 @@
           <img class="card-img-top img-fluid" src=<%= "#{@product.image_url}" %> alt="">
           <div class="card-body">
             <h3 class="card-title"><%= @product.title %></h3>
-            <h4>$<%= @product.price %></h4>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Add to cart</button>
+            <h4>Price: $<%= @product.price %></h4>
             <p class="card-text"><%= @product.description %></p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
             4.0 stars
           </div>
+
         </div>
         <!-- /.card -->
-
+        
       </div>
       <!-- /.col-lg-9 -->
-    
+
     </div>
 
   </div>

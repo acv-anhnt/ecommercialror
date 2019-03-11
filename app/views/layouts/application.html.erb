@@ -28,10 +28,8 @@
                           </button>
                       </div>
                   </div>
-                  <a class="btn btn-success btn-sm ml-3" href="cart.html">
-                      <i class="fa fa-shopping-cart"></i> Cart
-                      <span class="badge badge-light">3</span>
-                  </a>
+                  <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+
                   <%= link_to 'Profile', edit_user_registration_path, method: :delete, class: 'btn-success btn btn-success btn-sm ml-3' %>
                   <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'ml-3' %>
               </form>

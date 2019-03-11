@@ -1,10 +1,11 @@
 class OrderItemsController < ApplicationController
+    skip_before_action :verify_authenticity_token
     def create
-        order = current_order
-        order_item = order.order_items.new(order_item_params)
-        order.save
-        session[:order_id] = order.id
-        redirect_to products_path
+        @order = current_order
+        @order_item = @order.order_items.new(order_item_params)
+        binding.pry
+        @order.save
+        session[:order_id] = @order.id
     end
     def update
         @order = current_order

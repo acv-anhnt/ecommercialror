@@ -59,4 +59,14 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+      login: "soaptavish1993-facilitator_api1.gmail.com",
+      password: "UUDA9QVNQHAFWSL6",
+      signature: "AfcJQ6hE4rGj.0wMpKgV9A4.VEDWALvq-NUUAsh2BNSny-Mn1ZuYRTI6"
+    )
+  end
 end

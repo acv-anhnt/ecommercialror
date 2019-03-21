@@ -1,0 +1,26 @@
+= paginate @payments
+table.table
+  thead
+    tr
+      th.col
+        |#
+      th.col
+        |Purchased at
+      th.col
+        |Order id
+      th.col
+        |Status
+      th.col
+        |
+  tbody
+    - @payments.each do |payment|
+      tr
+        td
+          = payment.id
+        td
+          = payment.purchased_at
+        td
+          = payment.order_id
+        td
+          = payment.status
+= paginate @payments

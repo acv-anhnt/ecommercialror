@@ -1,0 +1,30 @@
+section#course-content
+  section#ruby
+    section.detailed-syllabus
+      .wrapper-inside
+        = form_for @payment, html: { class: "basic-grey" } do |f|
+          - if @payment.errors.any?
+            #error_explanation
+              h2
+                = pluralize(@payment.errors.count, "error")
+                |  prohibited this registration from being saved: 
+              ul
+                - @payment.errors.full_messages.each do |message|
+                  li
+                    = message
+          .field
+            = f.hidden_field :order_id, value: @order.id
+          .field
+            = f.label :full_name
+            = f.text_field :full_name
+          .field
+            = f.label :company
+            = f.text_field :company
+          .field
+            = f.label :email
+            = f.text_field :email
+          .field
+            = f.label :telephone
+            = f.text_field :telephone
+          .actions
+            = f.submit "Registration Payment", class: "btn", style: "color: white;background: rgb(242, 118, 73);"
